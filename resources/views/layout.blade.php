@@ -26,9 +26,13 @@
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{{route('procura.index')}}">Pesquisar</a>
-      <a class="nav-item nav-link" href="{{route('jogadores.index')}}">Jogadores</a>
-      <a class="nav-item nav-link" href="{{route('equipas.index')}}">Equipas</a>
+      <a class="nav-item nav-link" href="{{route('home.index')}}"><i class="fas fa-home"></i></a>
+      <a class="nav-item nav-link" href="{{route('procura.index')}}"><i class="fas fa-search"></i></a>
+      <a class="nav-item nav-link" href="{{route('categoria.index')}}">Categorias</a>
+      <a class="nav-item nav-link" href="{{route('encomenda.index')}}">Encomendas</a>
+      <a class="nav-item nav-link" href="{{route('fornecedor.index')}}">Fornecedores</a>
+      <a class="nav-item nav-link" href="{{route('produto.index')}}">Produtos</a>
+      <a class="nav-item nav-link" href="{{route('vendedor.index')}}">Vendedores</a>
     </div>
   </div>
 </nav>
