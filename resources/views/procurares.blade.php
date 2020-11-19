@@ -3,55 +3,30 @@
 Resultado para: "{{$texto}}"
 @endsection
 @section('conteudo')
-<div class="container">
-<div class="floatLeft">
-<table class="table table-dark table-striped">
-  <tbody>
-    <tr>
-    <td>
-    @if(count($resultado1)>0)
-    @else
+@if(count($resultado1)>0)
+@else
     <div class="alert alert-danger" role="alert">
     Nenhum resultado para categorias.
     </div>
-    @endif
-    </td>
-    </tr>
-    <tr>
-    <td>
-    @if(count($resultado2)>0)
-    @else
+@endif
+@if(count($resultado2)>0)
+@else
     <div class="alert alert-danger" role="alert">
     Nenhum resultado para fornecedores.
     </div>
-    @endif
-    </td>
-    </tr>
-    <tr>
-    <td>
-    @if(count($resultado3)>0)
-    @else
+@endif
+@if(count($resultado3)>0)
+@else
     <div class="alert alert-danger" role="alert">
-    Nenhum resultado para produtos.
+    Nenhum resultado para fornecedores.
     </div>
-    @endif
-    </td>
-    </tr>
-    <tr>
-    <td>
-    @if(count($resultado4)>0)
-    @else
+@endif
+@if(count($resultado4)>0)
+@else
     <div class="alert alert-danger" role="alert">
     Nenhum resultado para vendedores.
     </div>
-    @endif
-    </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+@endif
 <div class="container">
 <div class="floatLeft">
 <table class="table table-dark table-striped">
