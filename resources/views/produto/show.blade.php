@@ -1,6 +1,6 @@
 @extends('layout')
 @section('header')
-Fornecedor
+Produto
 @endsection
 @section('conteudo')
 <div class="container" style="text-align: center;">

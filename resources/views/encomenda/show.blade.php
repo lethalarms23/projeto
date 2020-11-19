@@ -1,10 +1,10 @@
 @extends('layout')
 @section('header')
-Categoria
+Encomenda
 @endsection
 @section('conteudo')
 <div class="container" style="text-align: center;">
 ID Produto: {{$encomenda->id_produto}}<br>
-ID: {{$encomenda->id_categoria}}<br>
+ID: {{$encomenda->id_produto}}<br>
 </div>
 @endsection
