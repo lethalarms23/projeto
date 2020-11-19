@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //Pagina Inicial
 
-Route::get('/', function(){return view('index');})->name('home.index');
+Route::get('/', 'App\Http\Controllers\IndexController@index')->name('index.procura');
 
 //Procura route
 

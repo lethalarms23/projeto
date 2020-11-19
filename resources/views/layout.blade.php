@@ -19,6 +19,16 @@
     a{
         color: #ffffff;
     }
+    table,tr,td,th{
+      color: #ffffff;
+      text-align: center;
+    }
+    th {
+      text-decoration: underline;
+    }
+    .floatLeft { width: 50%; float: left; }
+    .floatRight {width: 50%; float: right; }
+    .container { overflow: hidden; }
     </style>
 </head>
 <body>
@@ -26,7 +36,7 @@
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar bg-dark">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{{route('home.index')}}"><i class="fas fa-home"></i></a>
+      <a class="nav-item nav-link" href="{{route('index.procura')}}"><i class="fas fa-home"></i></a>
       <a class="nav-item nav-link" href="{{route('procura.index')}}"><i class="fas fa-search"></i></a>
       <a class="nav-item nav-link" href="{{route('categoria.index')}}">Categorias</a>
       <a class="nav-item nav-link" href="{{route('encomenda.index')}}">Encomendas</a>

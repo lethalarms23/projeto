@@ -11,4 +11,10 @@ class FornecedoresController extends Controller
         $fornecedores = Fornecedor::paginate(4);
         return view('fornecedor.index',['fornecedor'=>$fornecedores]);
     }
+
+    public function show(Request $r){
+        $idFornecedor = $r->id;
+        $fornecedores = Fornecedor::where('id_fornecedor',$idFornecedor)->with(['produtos'])->first();
+        return view('fornecedor.show',['fornecedor'=>$fornecedores]);
+    }
 }
