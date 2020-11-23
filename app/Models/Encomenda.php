@@ -14,7 +14,7 @@ class Encomenda extends Model
     protected $table='encomendas';
 
     public function produtos(){
-        return $this->belongToMany(
+        return $this->belongsToMany(
         'App\Models\Produto',
         'encomendas_produtos',
         'id_encomenda',
