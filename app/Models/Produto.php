@@ -21,4 +21,20 @@ class Produto extends Model
         'id_encomenda'
         )->withTimestamps();
     }
+
+    public function fornecedores(){
+        return $this->belongsToMany(
+            'App\Models\Fornecedor',
+            'fornecedores_produtos',
+            'id_produto',
+            'id_fornecedor'
+        )->withTimestamps();
+    }
+
+    public function categorias(){
+        return $this->belongsTo(
+            'App\Models\Categoria',
+            'id_categoria'
+        );
+    }
 }
