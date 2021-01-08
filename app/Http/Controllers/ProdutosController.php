@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use App\Models\Encomenda;
 
 class ProdutosController extends Controller
 {
@@ -16,5 +17,9 @@ class ProdutosController extends Controller
         $idProduto = $r->id;
         $produto = Produto::where('id_produto',$idProduto)->with('encomendas')->first();
         return view('produto.show',['produto'=>$produto]);
+    }
+
+    public function create (Request $r){
+        
     }
 }

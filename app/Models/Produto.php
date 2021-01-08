@@ -13,8 +13,18 @@ class Produto extends Model
 
     protected $table='produtos';
 
+
+    protected $fillable=[
+        'id_vendedor',
+        'designacao',
+        'stock',
+        'preco',
+        'observacoes'
+    ];
+    
     public function encomendas(){
-        return $this->belongToMany(
+        
+        return $this->belongsToMany(
         'App\Models\Encomenda',
         'encomendas_produtos',
         'id_produto',

@@ -8,4 +8,5 @@ Vendedor
 <a href="{{route('vendedor.show',['id'=>$vendedores->id_vendedor])}}"><b>{{$vendedores->nome}}</b></a><br>
 @endforeach
 </div>
+<a href="{{route('vendedor.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

@@ -12,4 +12,17 @@ class Vendedor extends Model
     protected $primaryKey='id_vendedor';
 
     protected $table='vendedores';
+
+    protected $dates=[
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable=[
+        'id_vendedor',
+        'nome',
+        'especialidade',
+        'email'
+    ];
 }
