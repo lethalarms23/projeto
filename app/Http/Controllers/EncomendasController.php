@@ -8,7 +8,7 @@ use App\Models\Encomenda;
 class EncomendasController extends Controller
 {
     public function index(){
-        $encomendas = Encomenda::paginate(4);
+        $encomendas = Encomenda::all();
         return view('encomenda.index',['encomenda'=>$encomendas]);
     }
 

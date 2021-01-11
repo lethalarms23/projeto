@@ -3,9 +3,11 @@
 Fornecedor
 @endsection
 @section('conteudo')
-<div class="container" style="background-color: #787878; text-align: center;width: min-content;">
+<table class="table table-dark table-striped">
 @foreach($fornecedor as $fornecedores)
+<tr><td>
 <a href="{{route('fornecedor.show',['id'=>$fornecedores->id_fornecedor])}}"><b>{{$fornecedores->nome}}</b></a><br>
+</tr></td>
 @endforeach
-</div>
+</table>
 @endsection

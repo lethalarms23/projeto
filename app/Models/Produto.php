@@ -16,14 +16,15 @@ class Produto extends Model
 
     protected $fillable=[
         'id_vendedor',
+        'id_categoria',
         'designacao',
         'stock',
         'preco',
         'observacoes'
     ];
-    
+
     public function encomendas(){
-        
+
         return $this->belongsToMany(
         'App\Models\Encomenda',
         'encomendas_produtos',

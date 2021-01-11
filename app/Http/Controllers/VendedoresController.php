@@ -9,7 +9,7 @@ use Auth;
 class VendedoresController extends Controller
 {
     public function index(){
-        $vendedores = Vendedor::paginate(4);
+        $vendedores = Vendedor::all();
         return view('vendedor.index',['vendedor'=>$vendedores]);
     }
 

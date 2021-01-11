@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Nov-2020 às 18:25
+-- Generation Time: 08-Jan-2021 às 18:23
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -66,7 +66,9 @@ CREATE TABLE `encomendas` (
 
 INSERT INTO `encomendas` (`id_encomenda`, `id_produto`, `quantidade`, `preco`) VALUES
 (1, 1, 1, 1),
-(2, 2, 2, 2);
+(2, 2, 2, 2),
+(3, 3, 2, 2),
+(4, 4, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -154,6 +156,18 @@ INSERT INTO `fornecedores_produtos` (`id_for_prod`, `id_fornecedor`, `id_produto
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `produtos`
 --
 
@@ -181,6 +195,23 @@ INSERT INTO `produtos` (`id_produto`, `designacao`, `stock`, `preco`, `id_catego
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `vendedores`
 --
 
@@ -198,7 +229,7 @@ CREATE TABLE `vendedores` (
 --
 
 INSERT INTO `vendedores` (`id_vendedor`, `nome`, `especialidade`, `email`, `updated_at`, `created_at`) VALUES
-(1, 'Manuel Pacheco', 'Eletrónica', 'mpacheco@Gmail.com', '2020-11-05 00:00:00', '2020-11-05 00:00:00'),
+(1, 'Manuel Pacheca', 'Eletrónica', 'mpacheco@gmail.com', '2021-01-08 16:08:48', '2020-11-05 00:00:00'),
 (2, 'Noé Silva', 'Informática', 'nsilva@gmail.com', '2020-11-05 00:00:00', '2020-11-05 00:00:00'),
 (3, 'Luís Gomes', 'Fotografia', 'lgomes', '2020-11-05 00:00:00', '2020-11-05 00:00:00'),
 (4, 'António Filipe', 'Informática', 'afilipe@gmail.com', '2020-11-05 00:00:00', '2020-11-05 00:00:00'),
@@ -239,10 +270,22 @@ ALTER TABLE `fornecedores_produtos`
   ADD PRIMARY KEY (`id_for_prod`);
 
 --
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id_produto`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `vendedores`
@@ -258,7 +301,7 @@ ALTER TABLE `vendedores`
 -- AUTO_INCREMENT for table `encomendas`
 --
 ALTER TABLE `encomendas`
-  MODIFY `id_encomenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_encomenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `encomendas_produtos`
@@ -267,10 +310,22 @@ ALTER TABLE `encomendas_produtos`
   MODIFY `id_enc_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
   MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vendedores`

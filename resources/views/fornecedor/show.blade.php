@@ -10,9 +10,7 @@ Telefone: {{$fornecedor->telefone}}<br>
 ID: {{$fornecedor->id_fornecedor}}<br>
 ID Produtos:
 @foreach($fornecedor->produtos as $produto)
-<a href="{{route('produto.show',['id'=>$produto->id_produto])}}">
-{{$produto->id_produto}}
-</a>
+<a href="{{route('produto.show',['id'=>$produto->nome])}}">{{$produto->nome}}</a>
 @endforeach
 </div>
 @endsection

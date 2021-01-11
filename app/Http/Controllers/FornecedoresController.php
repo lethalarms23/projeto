@@ -8,13 +8,12 @@ use App\Models\Fornecedor;
 class FornecedoresController extends Controller
 {
     public function index(){
-        $fornecedores = Fornecedor::paginate(4);
+        $fornecedores = Fornecedor::all();
         return view('fornecedor.index',['fornecedor'=>$fornecedores]);
     }
 
     public function show(Request $r){
-        $idFornecedor = $r->id;
-        $fornecedores = Fornecedor::where('id_fornecedor',$idFornecedor)->with(['produtos'])->first();
+        $fornecedores = Fornecedor::where('id_fornecedor',$r->id)->with(['produtos'])->first();
         return view('fornecedor.show',['fornecedor'=>$fornecedores]);
     }
 }

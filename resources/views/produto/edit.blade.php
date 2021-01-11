@@ -9,7 +9,7 @@ Editar Produto
 <table class="table table-dark table-striped">
 <tr>
 <th>Designacao</th>
-<td><input type="text" name="nome" value="{{$produto->designacao}}"></td>
+<td><input type="text" name="designacao" value="{{$produto->designacao}}"></td>
 </tr>
 <tr>
 <th>Stock</th>

@@ -3,9 +3,12 @@
 Produto
 @endsection
 @section('conteudo')
-<div class="container" style="background-color: #787878; text-align: center;width: min-content;">
+<table class="table table-dark table-striped">
 @foreach($produto as $produtos)
-<a href="{{route('produto.show',['id'=>$produtos->id_produto])}}"><b>{{$produtos->designacao}}</b></a><br>
+<tr>
+<td><a href="{{route('produto.show',['id'=>$produtos->id_produto])}}"><b>{{$produtos->designacao}}</b></a></td>
+</tr>
 @endforeach
-</div>
+</table>
+<a href="{{route('produto.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

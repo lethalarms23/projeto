@@ -3,10 +3,12 @@
 Vendedor
 @endsection
 @section('conteudo')
-<div class="container" style="background-color: #787878; text-align: center;width: min-content;">
+<table class="table table-dark table-striped">
 @foreach($vendedor as $vendedores)
+<tr><td>
 <a href="{{route('vendedor.show',['id'=>$vendedores->id_vendedor])}}"><b>{{$vendedores->nome}}</b></a><br>
+</tr></td>
 @endforeach
-</div>
+</table>
 <a href="{{route('vendedor.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

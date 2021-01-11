@@ -3,9 +3,11 @@
 Encomenda
 @endsection
 @section('conteudo')
-<div class="container" style="background-color: #787878; text-align: center;width: min-content;">
+<table class="table table-dark table-striped">
 @foreach($encomenda as $encomendas)
+<tr><td>
 <a href="{{route('encomenda.show',['id'=>$encomendas->id_encomenda])}}"><b>{{$encomendas->id_encomenda}}</b></a><br>
+</tr></td>
 @endforeach
-</div>
+</table>
 @endsection

@@ -3,9 +3,11 @@
 Categoria
 @endsection
 @section('conteudo')
-<div class="container" style="background-color: #787878; text-align: center;width: min-content;">
+<table class="table table-dark table-striped">
 @foreach($categoria as $categorias)
+<tr><td>
 <a href="{{route('categoria.show',['id'=>$categorias->id_categoria])}}"><b>{{$categorias->designacao}}</b></a><br>
+</tr></td>
 @endforeach
-</div>
+</table>
 @endsection
