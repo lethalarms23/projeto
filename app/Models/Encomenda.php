@@ -15,6 +15,12 @@ class Encomenda extends Model
 
     public $timestamps = false;
 
+    protected $fillable=[
+        'id_produto',
+        'quantidade',
+        'preco',
+    ];
+
     public function produtos(){
         return $this->belongsToMany(
         'App\Models\Produto',

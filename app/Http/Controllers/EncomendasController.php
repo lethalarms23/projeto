@@ -14,8 +14,7 @@ class EncomendasController extends Controller
     }
 
     public function show(Request $r){
-        $idEncomenda = $r->id;
-        $encomendas = Encomenda::where('id_encomenda',$idEncomenda)->with('produtos')->first();
+        $encomendas = Encomenda::where('id_encomenda',$r->id)->with('produtos')->first();
         return view('encomenda.show',['encomenda'=>$encomendas]);
     }
 
@@ -28,13 +27,13 @@ class EncomendasController extends Controller
         $produto = Produto::where('id_produto',$r->id_produto)->with('encomendas')->first();
         $precoProduto = $produto->preco;
         $novaEncomenda = $r->validate([
-            'id_produto' => ['required','numeric'],
+            'id_produto' => ['required'],
             'quantidade' => ['nullable','numeric'],
-            'preco' => ['nullable','numeric'],
+            'preco' => ['nullable'],
         ]);
-        $produto = $r->id_produto;
+        $novaEncomenda['preco']=$precoProduto;
         $encomenda = Encomenda::create($novaEncomenda);
-        $encomenda->produtos()->attach($precoProduto);
+        $encomenda->produtos()->attach($r->id_produto);
         return redirect()->route('encomenda.show',['id'=>$encomenda->id_encomenda]);
     }
 
@@ -51,7 +50,13 @@ class EncomendasController extends Controller
 
     public function edit(Request $r){
         $encomenda = Encomenda::where('id_encomenda',$r->id)->first();
-        return view('encomenda.edit',['encomenda'=>$encomenda]);
+        $produtos = Produto::all();
+ //dd($produto);
+        $produtosEncomendas=[];
+        foreach($encomenda->produtos as $produto){
+            $produtosEncomendas[]=$produto->id_produto;
+        }
+        return view('encomenda.edit',['encomenda'=>$encomenda,'produtoEnc'=>$produtosEncomendas,'produto'=>$produtos]);
     }
 
     public function update(Request $r){

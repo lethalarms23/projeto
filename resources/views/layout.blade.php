@@ -43,6 +43,7 @@
       <a class="nav-item nav-link" href="{{route('fornecedor.index')}}">Fornecedores</a>
       <a class="nav-item nav-link" href="{{route('produto.index')}}">Produtos</a>
       <a class="nav-item nav-link" href="{{route('vendedor.index')}}">Vendedores</a>
+      <a class="nav-item nav-link" href="{{route('home')}}">Dashboard</a>
       @guest
         @if (Route::has('login'))
             <li class="nav-item">

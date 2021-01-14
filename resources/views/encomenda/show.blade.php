@@ -10,4 +10,6 @@ Produtos:<br>
     <a href="{{route('produto.show',['id'=>$produto->id_produto])}}">{{$produto->designacao}}</a><br>
 @endforeach
 </div>
+<a href="{{route('encomenda.edit',['id'=>$encomenda->id_encomenda])}}" class="btn btn-secondary" role="button">Editar</a>
+<a href="{{route('encomenda.delete',['id'=>$encomenda->id_encomenda])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
 @endsection

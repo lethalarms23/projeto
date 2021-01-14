@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Jan-2021 às 10:06
+-- Generation Time: 14-Jan-2021 às 15:39
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -65,10 +65,10 @@ CREATE TABLE `encomendas` (
 --
 
 INSERT INTO `encomendas` (`id_encomenda`, `id_produto`, `quantidade`, `preco`) VALUES
-(1, 1, 1, 1),
 (2, 2, 2, 2),
 (3, 3, 2, 2),
-(4, 4, 2, 2);
+(4, 4, 2, 2),
+(7, 3, 1, 250);
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,9 @@ INSERT INTO `encomendas_produtos` (`id_enc_prod`, `id_produto`, `id_encomenda`, 
 (1, 1, 1, 2, 1.5, 0, NULL, '2020-12-02 00:00:00', '2020-12-31 00:00:00'),
 (2, 2, 1, 3, 10.5, 0, NULL, '2020-12-03 00:00:00', '2020-12-25 00:00:00'),
 (3, 3, 3, 3, 11.5, 0, NULL, '2020-12-11 00:00:00', '2020-12-22 00:00:00'),
-(4, 4, 4, 2, 21.5, 0, NULL, '2020-12-03 00:00:00', '2020-12-31 00:00:00');
+(4, 4, 4, 2, 21.5, 0, NULL, '2020-12-03 00:00:00', '2020-12-31 00:00:00'),
+(5, 2, 6, 0, 0, 0, NULL, '2021-01-14 14:05:51', '2021-01-14 14:05:51'),
+(6, 3, 7, 0, 0, 0, NULL, '2021-01-14 14:30:55', '2021-01-14 14:30:55');
 
 -- --------------------------------------------------------
 
@@ -187,7 +189,6 @@ CREATE TABLE `produtos` (
 INSERT INTO `produtos` (`id_produto`, `designacao`, `stock`, `preco`, `id_categoria`, `observacoes`, `updated_at`, `created_at`) VALUES
 (1, 'TV LG', 100, 150, 2, NULL, '2020-12-02 00:00:00', '2020-12-02 00:00:00'),
 (2, 'TV SONY', 200, 50, 2, NULL, '2020-12-25 00:00:00', '2020-12-31 00:00:00'),
-(3, 'PC ASUS', 50, 250, 1, NULL, '2020-12-04 00:00:00', '2020-12-30 00:00:00'),
 (4, 'Apple iPhone', 200, 1000, 5, NULL, '2020-12-02 00:00:00', '2020-12-31 00:00:00');
 
 -- --------------------------------------------------------
@@ -206,6 +207,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Marcelo', 'hiddankill@gmail.com', NULL, '$2y$10$wfycg.V.rOPEysknw51BWuqxz9VemaFDsioZWCQJrOZHmoklbkaLy', 'rbReklWd3BPutNVyqLhZSztzcBKVLli3kJbPjeqNYtIDrXUrhNpYwn9xrwwz', '2021-01-14 14:01:22', '2021-01-14 14:01:22');
 
 -- --------------------------------------------------------
 
@@ -296,16 +304,22 @@ ALTER TABLE `vendedores`
 --
 
 --
+-- AUTO_INCREMENT for table `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `encomendas`
 --
 ALTER TABLE `encomendas`
-  MODIFY `id_encomenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_encomenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `encomendas_produtos`
 --
 ALTER TABLE `encomendas_produtos`
-  MODIFY `id_enc_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_enc_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fornecedores`
@@ -329,7 +343,7 @@ ALTER TABLE `produtos`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `vendedores`

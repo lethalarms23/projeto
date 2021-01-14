@@ -31,7 +31,7 @@ Route::get('/categoria/{id}/show','App\Http\Controllers\CategoriasController@sho
 
 Route::get('/categoria/create','App\Http\Controllers\CategoriasController@create')->name('categoria.create');
 
-Route::get('/categoria/store','App\Http\Controllers\CategoriasController@store')->name('categoria.store');
+Route::post('/categoria/store','App\Http\Controllers\CategoriasController@store')->name('categoria.store');
 
 Route::get('/categoria/{id}/edit','App\Http\Controllers\CategoriasController@edit')->name('categoria.edit');
 

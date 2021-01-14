@@ -10,4 +10,5 @@ Categoria
 </tr></td>
 @endforeach
 </table>
+<a href="{{route('categoria.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

@@ -15,8 +15,7 @@ class Categoria extends Model
 
     protected $fillable=[
         'id_produto',
-        'quantidada',
-        'preco',
+        'designacao',
     ];  
 
     public function produtos(){

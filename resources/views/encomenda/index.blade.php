@@ -10,4 +10,5 @@ Encomenda
 </tr></td>
 @endforeach
 </table>
+<a href="{{route('encomenda.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

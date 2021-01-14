@@ -24,42 +24,36 @@ class CategoriasController extends Controller
 
     public function store(Request $r){
         $novaCategoria = $r->validate([
-            'nome' =>['required','min:1','max:50'],
-            'morada' =>['nullable','min:1','max:100'],
-            'id_categoria' => ['nullable','numeric','min:1'],
-            'telefone' => ['nullable','numeric','min:1'],
-            'observacoes' =>['nullable','min:1','max:255'],
+            'id_categoria' =>['nullable'],
+            'designacao' =>['required'],
         ]);
         $categoria = Categoria::create($novaCategoria);
         return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
     }
 
     public function delete(Request $r){
-        $fornecedor = Fornecedor::where('id_fornecedor',$r->id)->first();
-        return view('fornecedor.delete',['fornecedor'=>$fornecedor]);
+        $categoria = Categoria::where('id_categoria',$r->id)->first();
+        return view('categoria.delete',['categoria'=>$categoria]);
     }
 
     public function destroy(Request $r){
-        $fornecedor = Fornecedor::where('id_fornecedor',$r->id)->first();
-        $fornecedor->delete();
-        return redirect()->route('fornecedor.index');
+        $categoria = Categoria::where('id_categoria',$r->id)->first();
+        $categoria->delete();
+        return redirect()->route('categoria.index');
     }
 
     public function edit(Request $r){
-        $fornecedor = Fornecedor::where('id_fornecedor',$r->id)->first();
-        return view('fornecedor.edit',['fornecedor'=>$fornecedor]);
+        $categoria = Categoria::where('id_categoria',$r->id)->first();
+        return view('categoria.edit',['categoria'=>$categoria]);
     }
 
     public function update(Request $r){
-        $fornecedor = Fornecedor::where('id_fornecedor',$r->id)->first();
-        $editarFornecedor = $r->validate([
-            'nome' =>['required','min:1','max:50'],
-            'morada' =>['nullable','min:1','max:100'],
-            'id_categoria' => ['nullable','numeric','min:1'],
-            'telefone' => ['nullable','numeric','min:1'],
-            'observacoes' =>['nullable','min:1','max:255'],
+        $categoria = Categoria::where('id_categoria',$r->id)->first();
+        $editarCategoria = $r->validate([
+            'id_categoria' =>['nullable'],
+            'designacao' =>['required'],
         ]);
-        $fornecedorUpdated = $fornecedor->update($editarFornecedor);
-        return redirect()->route('fornecedor.show',['id'=>$fornecedor->id_fornecedor]);
+        $categoriaUpdated = $categoria->update($editarCategoria);
+        return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
     }
 }
