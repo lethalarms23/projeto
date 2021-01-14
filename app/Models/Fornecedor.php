@@ -13,6 +13,14 @@ class Fornecedor extends Model
 
     protected $table='fornecedores';
 
+    protected $fillable = [
+        'nome',
+        'morada',
+        'id_categoria',
+        'telefone',
+        'observacoes',
+    ];
+
     public function produtos(){
         return $this->belongsToMany(
             'App\Models\Produto',

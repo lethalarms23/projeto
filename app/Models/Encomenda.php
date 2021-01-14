@@ -13,6 +13,8 @@ class Encomenda extends Model
 
     protected $table='encomendas';
 
+    public $timestamps = false;
+
     public function produtos(){
         return $this->belongsToMany(
         'App\Models\Produto',

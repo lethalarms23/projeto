@@ -49,7 +49,7 @@ Route::get('/encomenda/{id}/show','App\Http\Controllers\EncomendasController@sho
 
 Route::get('/encomenda/create','App\Http\Controllers\EncomendasController@create')->name('encomenda.create');
 
-Route::post('/encomenda/store','App\Http\Controllers\EncomendasControler@store')->name('encomenda.store');
+Route::post('/encomenda/store','App\Http\Controllers\EncomendasController@store')->name('encomenda.store');
 
 Route::get('/encomenda/{id}/edit','App\Http\Controllers\EncomendasController@edit')->name('encomenda.edit');
 

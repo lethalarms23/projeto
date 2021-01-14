@@ -10,4 +10,5 @@ Fornecedor
 </tr></td>
 @endforeach
 </table>
+<a href="{{route('fornecedor.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
 @endsection

@@ -13,6 +13,12 @@ class Categoria extends Model
 
     protected $table='categorias';
 
+    protected $fillable=[
+        'id_produto',
+        'quantidada',
+        'preco',
+    ];  
+
     public function produtos(){
         return $this->hasMany('App\Models\Produto','id_produto');
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Jan-2021 às 18:23
+-- Generation Time: 14-Jan-2021 às 10:06
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.2
 
@@ -110,7 +110,7 @@ CREATE TABLE `fornecedores` (
   `morada` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
   `telefone` varchar(13) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `obervacoes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `observacoes` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -119,12 +119,11 @@ CREATE TABLE `fornecedores` (
 -- Extraindo dados da tabela `fornecedores`
 --
 
-INSERT INTO `fornecedores` (`id_fornecedor`, `nome`, `morada`, `id_categoria`, `telefone`, `obervacoes`, `updated_at`, `created_at`) VALUES
+INSERT INTO `fornecedores` (`id_fornecedor`, `nome`, `morada`, `id_categoria`, `telefone`, `observacoes`, `updated_at`, `created_at`) VALUES
 (1, 'Oreo', 'Rua das Oreos', 1, '923456781', NULL, '2020-11-05 12:53:20', '2020-11-05 12:53:20'),
-(2, 'Nerf', 'Rua das Nerfs', 1, '981234567', NULL, '2020-11-05 12:53:20', '2020-11-05 12:53:20'),
 (3, 'IKEA', 'Rua do IKEA', 3, '918589899', NULL, '2020-11-05 13:12:14', '2020-11-05 13:12:14'),
 (4, 'Porto Editora', 'Rua do Porto Editora', 3, '910608608', NULL, '2020-11-05 13:12:14', '2020-11-05 13:12:14'),
-(5, 'Cozinhas LDA', 'Rua da Cozinha', 4, '918589898', NULL, '2020-11-05 13:12:40', '2020-11-05 13:12:40');
+(5, 'aaa', 'aaa', NULL, '1', 'a', '2021-01-14 09:06:48', '2021-01-14 09:06:48');
 
 -- --------------------------------------------------------
 
@@ -150,8 +149,7 @@ INSERT INTO `fornecedores_produtos` (`id_for_prod`, `id_fornecedor`, `id_produto
 (1, 1, 1, 100, NULL, '2020-11-05 13:02:06', '2020-11-05 13:02:06'),
 (2, 1, 2, 150, NULL, '2020-11-05 13:02:22', '2020-11-05 13:02:22'),
 (3, 2, 3, 100, NULL, '2020-11-05 13:20:52', '2020-11-05 13:20:52'),
-(4, 2, 4, 150, NULL, '2020-11-05 13:21:00', '2020-11-05 13:21:00'),
-(5, 2, 5, 200, NULL, '2020-11-05 13:21:08', '2020-11-05 13:21:08');
+(4, 2, 4, 150, NULL, '2020-11-05 13:21:00', '2020-11-05 13:21:00');
 
 -- --------------------------------------------------------
 
@@ -308,6 +306,12 @@ ALTER TABLE `encomendas`
 --
 ALTER TABLE `encomendas_produtos`
   MODIFY `id_enc_prod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `fornecedores`
+--
+ALTER TABLE `fornecedores`
+  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
