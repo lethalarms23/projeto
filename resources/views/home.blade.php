@@ -5,12 +5,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <h3><div class="card-header text-dark d-flex justify-content-center">{{ __('Bem Vindo')}} {{Auth::user()->name}}</div></h3>
+            <div class="card bg-dark">
+                <h3><div class="card-header bg-dark d-flex justify-content-center">{{ __('Bem Vindo')}} {{Auth::user()->name}}</div></h3>
 
-                <div class="card-body text-dark">
+                <div class="card-body bg-dark">
                     @if (session('status'))
-                        <div class="alert alert-success text-dark" role="alert">
+                        <div class="alert alert-success bg-dark" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
@@ -20,7 +20,7 @@
                         Nome: {{Auth::user()->name}}<br>
                     @endif
                 </div>
-                <a class="text-dark btn btn-outline-danger" href="{{ route('logout') }}"
+                <a class="bg-dark btn btn-outline-danger" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
