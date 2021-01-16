@@ -32,6 +32,9 @@
     </style>
 </head>
 <body>
+@if(session()->has('msg'))
+  <h2 style="text-align: center" class="alert alert-danger">{{session('msg')}}</h2>
+@endif
     <h2 style="text-align: center" class="bg-dark">@yield('header')</h2>
     @yield('conteudo')
     <nav class="navbar navbar-expand-lg navbar bg-dark">

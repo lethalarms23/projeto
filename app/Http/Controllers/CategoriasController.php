@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Categoria;
 
 class CategoriasController extends Controller
@@ -19,41 +20,71 @@ class CategoriasController extends Controller
     }
 
     public function create(){
-        return view('categoria.create');
+        if(Gate::allows('admin')){
+            return view('categoria.create');
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 
     public function store(Request $r){
-        $novaCategoria = $r->validate([
-            'id_categoria' =>['nullable'],
-            'designacao' =>['required'],
-        ]);
-        $categoria = Categoria::create($novaCategoria);
-        return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
+        if(Gate::allows('admin')){
+            $novaCategoria = $r->validate([
+                'id_categoria' =>['nullable'],
+                'designacao' =>['required'],
+            ]);
+            $categoria = Categoria::create($novaCategoria);
+            return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 
     public function delete(Request $r){
-        $categoria = Categoria::where('id_categoria',$r->id)->first();
-        return view('categoria.delete',['categoria'=>$categoria]);
+        if(Gate::allows('admin')){
+            $categoria = Categoria::where('id_categoria',$r->id)->first();
+            return view('categoria.delete',['categoria'=>$categoria]);
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 
     public function destroy(Request $r){
-        $categoria = Categoria::where('id_categoria',$r->id)->first();
-        $categoria->delete();
-        return redirect()->route('categoria.index');
+        if(Gate::allows('admin')){
+            $categoria = Categoria::where('id_categoria',$r->id)->first();
+            $categoria->delete();
+            return redirect()->route('categoria.index');
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 
     public function edit(Request $r){
-        $categoria = Categoria::where('id_categoria',$r->id)->first();
-        return view('categoria.edit',['categoria'=>$categoria]);
+        if(Gate::allows('admin')){
+            $categoria = Categoria::where('id_categoria',$r->id)->first();
+            return view('categoria.edit',['categoria'=>$categoria]);
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 
     public function update(Request $r){
-        $categoria = Categoria::where('id_categoria',$r->id)->first();
-        $editarCategoria = $r->validate([
-            'id_categoria' =>['nullable'],
-            'designacao' =>['required'],
-        ]);
-        $categoriaUpdated = $categoria->update($editarCategoria);
-        return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
+        if(Gate::allows('admin')){
+            $categoria = Categoria::where('id_categoria',$r->id)->first();
+            $editarCategoria = $r->validate([
+                'id_categoria' =>['nullable'],
+                'designacao' =>['required'],
+            ]);
+            $categoriaUpdated = $categoria->update($editarCategoria);
+            return redirect()->route('categoria.show',['id'=>$categoria->id_categoria]);
+        }
+        else{
+            return redirect()->route('categoria.index')->with('msg','Não têm permissão');
+        }
     }
 }

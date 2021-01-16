@@ -10,5 +10,7 @@ Vendedor
 </tr></td>
 @endforeach
 </table>
+@if(Gate::allows('admin'))
 <a href="{{route('vendedor.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
+@endif
 @endsection

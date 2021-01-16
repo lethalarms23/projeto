@@ -10,5 +10,7 @@ Produto
 </tr>
 @endforeach
 </table>
-<a href="{{route('produto.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
+@if(Gate::allows('admin'))
+    <a href="{{route('produto.create')}}" class="btn btn-secondary" role="button">Adicionar</a>
+@endif
 @endsection

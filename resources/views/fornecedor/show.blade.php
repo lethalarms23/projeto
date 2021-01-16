@@ -24,6 +24,8 @@ Produtos:
 </table>
 @endif
 </div>
+@if(Gate::allows('admin'))
 <a href="{{route('fornecedor.edit',['id'=>$fornecedor->id_fornecedor])}}" class="btn btn-secondary" role="button">Editar</a>
 <a href="{{route('fornecedor.delete',['id'=>$fornecedor->id_fornecedor])}}" class="btn btn-secondary" role="button"><i class="fas fa-minus"></i></a><br>
+@endif
 @endsection
